@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import men from "./images/man.jpg";
+import women from "./images/woman.jpg";
+import hat from "./images/hat.jpg";
+import jackets from "./images/jackets.jpg";
+import sneakers from "./images/sneakers.jpg";
+import Directory from "./directory/directory";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+  const produits = [
+    { id: "1", produit: "hats", image: `${hat}` },
+    { id: "2", produit: "jackes", image: `${jackets}` },
+    { id: "3", produit: "sneakers", image: `${sneakers}` },
+    { id: "4", produit: "women", image: `${women}` },
+    { id: "5", produit: "men", image: `${men}` },
+  ];
+
+  return <Directory produits={produits} />;
+};
 
 export default App;

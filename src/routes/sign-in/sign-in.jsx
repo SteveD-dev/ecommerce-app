@@ -1,8 +1,9 @@
-import {signInWithGoogle, createUserDocFromGoogleAuth} from '../../utils/firebase/firebase.utils'
+import SignUp from '../../components/sign-up/sign-up';
+import {signInWithGoogle, createUserDocFromAuth} from '../../utils/firebase/firebase.utils'
 
 const loginGoogle = async () => {
   const {user} = await signInWithGoogle();
-  const userDocRef = await createUserDocFromGoogleAuth(user)
+  const userDocRef = await createUserDocFromAuth(user)
   //console.log(user);
 };
 
@@ -11,7 +12,8 @@ const SignIn = () => {
   return (
     <div>
       I'm the sign in page
-      <button onClick={loginGoogle}> ssign with GOOGLE</button>
+      <button onClick={loginGoogle}> sign with GOOGLE</button>
+      <SignUp />
     </div>
   );
 };

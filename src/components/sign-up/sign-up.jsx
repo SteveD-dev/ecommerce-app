@@ -1,8 +1,12 @@
 import { useState } from "react";
+import FormInput from "../formInput/formInput";
+import CustomButton from "../button/button";
 import {
   createUserFromEmailPassword,
   createUserDocFromAuth,
 } from "../../utils/firebase/firebase.utils";
+
+import "./sign-up.styles.scss";
 
 const SignUp = () => {
   const formFieldDefault = {
@@ -38,10 +42,9 @@ const SignUp = () => {
       if (error.code == "auth/email-already-in-use") {
         alert("this email is already used");
         clearForm();
-      }else{
+      } else {
         console.log(error.message);
       }
-      
     }
   };
 
@@ -51,11 +54,12 @@ const SignUp = () => {
   };
 
   return (
-    <div>
-      <h1> do no have an account? Sign up </h1>
+    <div className="sign-up-container">
+      <h1>Sign Up</h1>
+      <span> do no have an account? Sign up </span>
       <form onSubmit={fieldSubmit}>
-        <label> Name</label>
-        <input
+        <FormInput
+          label="name"
           required
           ype="text"
           onChange={fieldChange}
@@ -63,8 +67,8 @@ const SignUp = () => {
           value={displayName}
         />
 
-        <label> Email</label>
-        <input
+        <FormInput
+          label="Email"
           required
           type="email"
           onChange={fieldChange}
@@ -72,8 +76,8 @@ const SignUp = () => {
           value={email}
         />
 
-        <label> Password</label>
-        <input
+        <FormInput
+          label="password"
           required
           type="password"
           onChange={fieldChange}
@@ -81,8 +85,8 @@ const SignUp = () => {
           value={password}
         />
 
-        <label> Confirm Password</label>
-        <input
+        <FormInput
+          label="confirm password"
           required
           type="password"
           onChange={fieldChange}
@@ -91,6 +95,9 @@ const SignUp = () => {
         />
 
         <button type="submit"> connnexion</button>
+        <CustomButton buttonType='inverted' type="submit">
+          Sign up
+        </CustomButton>
       </form>
     </div>
   );
